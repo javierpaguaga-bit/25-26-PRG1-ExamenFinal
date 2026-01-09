@@ -93,7 +93,7 @@ public class ValidadorFormulario {
         
                     System.out.print("Edad: ");
                     int edad = sc.nextInt();
-                    sc.nextLine(); // Consumir newline
+                    sc.nextLine();
                     if (edad < 18) {
                         System.out.println("ERROR: Debes ser mayor de edad");
                         continue;
