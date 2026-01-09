@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class ValidadorFormulario {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] u_regs = new String[10];
-        String[] e_regs = new String[10];
+        String[] nombreDeUsuarios = new String[10];
+        String[] correoDeUsuarios = new String[10];
         int usuariosRegistrados = 0;
 
         System.out.println("Sistema de Registro - Portal Web v3.2");
@@ -105,10 +105,10 @@ public class ValidadorFormulario {
         
                     System.out.println("--> Registro completado exitosamente!");
                     if (usuariosRegistrados < 10) {
-                        u_regs[usuariosRegistrados
+                        nombreDeUsuarios[usuariosRegistrados
                 
                         ] = usuario;
-                        e_regs[usuariosRegistrados
+                        correoDeUsuarios[usuariosRegistrados
                 
                         ] = email;
                         usuariosRegistrados
@@ -120,7 +120,7 @@ public class ValidadorFormulario {
                 case "2" -> {
                     System.out.println("Usuarios Registrados:");
                     for (int i = 0; i < usuariosRegistrados; i++) {
-                        System.out.println((i + 1) + ". " + u_regs[i] + " - " + e_regs[i]);
+                        System.out.println((i + 1) + ". " + nombreDeUsuarios[i] + " - " + correoDeUsuarios[i]);
                     }
                     System.out.println("Saliendo del sistema...");
                     sc.close();
