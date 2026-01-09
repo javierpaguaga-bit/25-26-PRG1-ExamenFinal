@@ -15,22 +15,22 @@ public class ValidadorFormulario {
             System.out.print("Opcion: ");
             String opt = sc.nextLine();
 
-            if (opt.equals("2")) {
-                System.out.println("Usuarios Registrados");
-                if (usuariosRegistrados == 0) {
-                    System.out.println("(No hay usuarios registrados)");
-                } else {
-                    for(int i = 0; i < usuariosRegistrados
-            ; i++) {
-                        System.out.println((i+1) + ". Usuario: " + u_regs[i] + ", Email: " + e_regs[i]);
-                    }
+            switch(opt) {
+                case "1" -> {
                 }
-                System.out.println("Saliendo del sistema...");
-                break;
-            }
-            if (!opt.equals("1")) {
-                System.out.println("Opcion no valida.");
-                continue;
+                case "2" -> {
+                    System.out.println("Usuarios Registrados:");
+                    for (int i = 0; i < usuariosRegistrados; i++) {
+                        System.out.println((i + 1) + ". " + u_regs[i] + " - " + e_regs[i]);
+                    }
+                    System.out.println("Saliendo del sistema...");
+                    sc.close();
+                    return;
+                }
+                default -> {
+                    System.out.println("ERROR: Opcion no valida. Intente de nuevo.");
+                    continue;
+                }
             }
 
             System.out.println("Nuevo Registro");
@@ -133,6 +133,5 @@ public class ValidadorFormulario {
                 System.out.println("ADVERTENCIA: No hay mas espacio para guardar nuevos usuarios.");
             }
         }
-        sc.close();
     }
 }
