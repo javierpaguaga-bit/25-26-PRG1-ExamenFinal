@@ -86,7 +86,6 @@ public class ValidadorFormulario {
                 continue;
             }
             boolean tieneArroba = false;
-            int posicionArroba = -1;
             for (int i = 0; i < email.length(); i++) {
                 if (email.charAt(i) == '@') {
                     tieneArroba = true;
