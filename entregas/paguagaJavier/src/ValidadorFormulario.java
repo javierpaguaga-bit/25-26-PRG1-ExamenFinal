@@ -17,6 +17,105 @@ public class ValidadorFormulario {
 
             switch(opt) {
                 case "1" -> {
+                    System.out.println("Nuevo Registro");
+                    System.out.print("Nombre de usuario: ");
+                    String usuario = sc.nextLine();
+                    if (usuario.length() < 3) {
+                        System.out.println("ERROR: El nombre debe tener al menos 3 caracteres");
+                        continue;
+                    }
+                    if (usuario.length() > 20) {
+                        System.out.println("ERROR: El nombre no puede exceder 20 caracteres");
+                        continue;
+                    }
+                    boolean tieneEspacio = false;
+                    for (int i = 0; i < usuario.length(); i++) {
+                        if (usuario.charAt(i) == ' ') {
+                            tieneEspacio = true;
+                        }
+                    }
+                    if (tieneEspacio) {
+                        System.out.println("ERROR: El nombre no puede contener espacios");
+                        continue;
+                    }
+        
+                    System.out.print("Contrasena: ");
+                    String password = sc.nextLine();
+                    if (password.length() < 8) {
+                        System.out.println("ERROR: La contrasena debe tener al menos 8 caracteres");
+                        continue;
+                    }
+                    if (password.length() > 30) {
+                        System.out.println("ERROR: La contrasena no puede exceder 30 caracteres");
+                        continue;
+                    }
+                    boolean tieneNumero = false;
+                    for (int i = 0; i < password.length(); i++) {
+                        if (password.charAt(i) >= '0' && password.charAt(i) <= '9') {
+                            tieneNumero = true;
+                        }
+                    }
+                    if (!tieneNumero) {
+                        System.out.println("ERROR: La contrasena debe contener al menos un numero");
+                        continue;
+                    }
+        
+                    System.out.print("Email: ");
+                    String email = sc.nextLine();
+                    if (email.length() < 5) {
+                        System.out.println("ERROR: El email debe tener al menos 5 caracteres");
+                        continue;
+                    }
+                    if (email.length() > 50) {
+                        System.out.println("ERROR: El email no puede exceder 50 caracteres");
+                        continue;
+                    }
+                    boolean tieneArroba = false;
+                    for (int i = 0; i < email.length(); i++) {
+                        if (email.charAt(i) == '@') {
+                            tieneArroba = true;
+                        }
+                    }
+                    if (!tieneArroba) {
+                        System.out.println("ERROR: El email debe contener @");
+                        continue;
+                    }
+                    boolean tienePunto = false;
+                    for (int i = 0; i < email.length(); i++) {
+                        if (email.charAt(i) == '.') {
+                            tienePunto = true;
+                        }
+                    }
+                    if (!tienePunto) {
+                        System.out.println("ERROR: El email debe contener un punto");
+                        continue;
+                    }
+        
+                    System.out.print("Edad: ");
+                    int edad = sc.nextInt();
+                    sc.nextLine(); // Consumir newline
+                    if (edad < 18) {
+                        System.out.println("ERROR: Debes ser mayor de edad");
+                        continue;
+                    }
+                    if (edad > 120) {
+                        System.out.println("ERROR: Edad no valida");
+                        continue;
+                    }
+        
+                    System.out.println("--> Registro completado exitosamente!");
+                    if (usuariosRegistrados < 10) {
+                        u_regs[usuariosRegistrados
+                
+                        ] = usuario;
+                        e_regs[usuariosRegistrados
+                
+                        ] = email;
+                        usuariosRegistrados
+            ++;
+                    } else {
+                        System.out.println("ADVERTENCIA: No hay mas espacio para guardar nuevos usuarios.");
+                    }
                 }
                 case "2" -> {
                     System.out.println("Usuarios Registrados:");
@@ -33,105 +132,6 @@ public class ValidadorFormulario {
                 }
             }
 
-            System.out.println("Nuevo Registro");
-            System.out.print("Nombre de usuario: ");
-            String usuario = sc.nextLine();
-            if (usuario.length() < 3) {
-                System.out.println("ERROR: El nombre debe tener al menos 3 caracteres");
-                continue;
-            }
-            if (usuario.length() > 20) {
-                System.out.println("ERROR: El nombre no puede exceder 20 caracteres");
-                continue;
-            }
-            boolean tieneEspacio = false;
-            for (int i = 0; i < usuario.length(); i++) {
-                if (usuario.charAt(i) == ' ') {
-                    tieneEspacio = true;
-                }
-            }
-            if (tieneEspacio) {
-                System.out.println("ERROR: El nombre no puede contener espacios");
-                continue;
-            }
-
-            System.out.print("Contrasena: ");
-            String password = sc.nextLine();
-            if (password.length() < 8) {
-                System.out.println("ERROR: La contrasena debe tener al menos 8 caracteres");
-                continue;
-            }
-            if (password.length() > 30) {
-                System.out.println("ERROR: La contrasena no puede exceder 30 caracteres");
-                continue;
-            }
-            boolean tieneNumero = false;
-            for (int i = 0; i < password.length(); i++) {
-                if (password.charAt(i) >= '0' && password.charAt(i) <= '9') {
-                    tieneNumero = true;
-                }
-            }
-            if (!tieneNumero) {
-                System.out.println("ERROR: La contrasena debe contener al menos un numero");
-                continue;
-            }
-
-            System.out.print("Email: ");
-            String email = sc.nextLine();
-            if (email.length() < 5) {
-                System.out.println("ERROR: El email debe tener al menos 5 caracteres");
-                continue;
-            }
-            if (email.length() > 50) {
-                System.out.println("ERROR: El email no puede exceder 50 caracteres");
-                continue;
-            }
-            boolean tieneArroba = false;
-            for (int i = 0; i < email.length(); i++) {
-                if (email.charAt(i) == '@') {
-                    tieneArroba = true;
-                }
-            }
-            if (!tieneArroba) {
-                System.out.println("ERROR: El email debe contener @");
-                continue;
-            }
-            boolean tienePunto = false;
-            for (int i = 0; i < email.length(); i++) {
-                if (email.charAt(i) == '.') {
-                    tienePunto = true;
-                }
-            }
-            if (!tienePunto) {
-                System.out.println("ERROR: El email debe contener un punto");
-                continue;
-            }
-
-            System.out.print("Edad: ");
-            int edad = sc.nextInt();
-            sc.nextLine(); // Consumir newline
-            if (edad < 18) {
-                System.out.println("ERROR: Debes ser mayor de edad");
-                continue;
-            }
-            if (edad > 120) {
-                System.out.println("ERROR: Edad no valida");
-                continue;
-            }
-
-            System.out.println("--> Registro completado exitosamente!");
-            if (usuariosRegistrados < 10) {
-                u_regs[usuariosRegistrados
-        
-                ] = usuario;
-                e_regs[usuariosRegistrados
-        
-                ] = email;
-                usuariosRegistrados
-    ++;
-            } else {
-                System.out.println("ADVERTENCIA: No hay mas espacio para guardar nuevos usuarios.");
-            }
         }
     }
 }
