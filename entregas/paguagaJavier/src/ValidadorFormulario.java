@@ -5,7 +5,7 @@ public class ValidadorFormulario {
         Scanner sc = new Scanner(System.in);
         String[] u_regs = new String[10];
         String[] e_regs = new String[10];
-        int n_regs = 0;
+        int usuariosRegistrados = 0;
 
         System.out.println("Sistema de Registro - Portal Web v3.2");
 
@@ -17,10 +17,11 @@ public class ValidadorFormulario {
 
             if (opt.equals("2")) {
                 System.out.println("Usuarios Registrados");
-                if (n_regs == 0) {
+                if (usuariosRegistrados == 0) {
                     System.out.println("(No hay usuarios registrados)");
                 } else {
-                    for(int i = 0; i < n_regs; i++) {
+                    for(int i = 0; i < usuariosRegistrados
+            ; i++) {
                         System.out.println((i+1) + ". Usuario: " + u_regs[i] + ", Email: " + e_regs[i]);
                     }
                 }
@@ -119,10 +120,15 @@ public class ValidadorFormulario {
             }
 
             System.out.println("--> Registro completado exitosamente!");
-            if (n_regs < 10) {
-                u_regs[n_regs] = usuario;
-                e_regs[n_regs] = email;
-                n_regs++;
+            if (usuariosRegistrados < 10) {
+                u_regs[usuariosRegistrados
+        
+                ] = usuario;
+                e_regs[usuariosRegistrados
+        
+                ] = email;
+                usuariosRegistrados
+    ++;
             } else {
                 System.out.println("ADVERTENCIA: No hay mas espacio para guardar nuevos usuarios.");
             }
